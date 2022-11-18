@@ -3,6 +3,9 @@ import sys #To Exit the game
 import pygame
 from pygame.locals import * #Basic Pygame Imports
 
+#Edit file path before deploying
+FILE_PATH = '/Users/skyler97/Desktop/Programming/Python/Flappy Bird With Thiam Kok/resources/'
+
 FPS = 32
 SCREENWIDTH = 289
 SCREENHEIGHT = 511
@@ -10,9 +13,9 @@ SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
 GROUNDY = SCREENHEIGHT*0.8
 GAME_SPRITES = {}
 GAME_SOUNDS = {}
-PLAYER = 'D:/Programming/Python/Flappy Bird/resources/SPRITES/bird.png'
-BACKGROUND = 'D:/Programming/Python/Flappy Bird/resources/SPRITES/bg.jpeg'
-PIPE = 'D:/Programming/Python/Flappy Bird/resources/SPRITES/pipe.png '
+PLAYER = FILE_PATH+'SPRITES/bird.png'
+BACKGROUND = FILE_PATH+'SPRITES/bg.jpeg'
+PIPE = FILE_PATH+'SPRITES/pipe.png'
 
 def welcomeScreen():
 
@@ -52,7 +55,7 @@ def welcomeScreen():
                 SCREEN.blit(GAME_SPRITES['message'],(messagex,messagey))
                 SCREEN.blit(GAME_SPRITES['base'],(basex,GROUNDY))
                 #Adding INRO Music
-                pygame.mixer.music.load('D:/Programming/Python/Flappy Bird/resources/AUDIO/INTROMUSIC.mp3')
+                pygame.mixer.music.load(FILE_PATH+'AUDIO/INTROMUSIC.mp3')
                 pygame.mixer.music.play()
                 pygame.display.update()
                 FPSCLOCK.tick(FPS)
@@ -61,7 +64,7 @@ def mainGame():
     
     #ADDING THE BACKGROUND MUSIC
     pygame.mixer.music.stop()
-    pygame.mixer.music.load('D:/Programming/Python/Flappy Bird/resources/AUDIO/BGMUSIC.mp3')
+    pygame.mixer.music.load(FILE_PATH+'AUDIO/BGMUSIC.mp3')
     pygame.mixer.music.play()
     score = 0
     playerx = int(SCREENWIDTH/5)
@@ -209,9 +212,9 @@ def gameOver():
     
     SCREEN = pygame.display.set_mode((SCREENWIDTH, SCREENHEIGHT))
     pygame.display.set_caption('Flappy Bird With Thiam Kok')
-    GAME_SPRITES['OVER'] = pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/gameover.png').convert_alpha()
-    GAME_SPRITES['RETRY'] = pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/retry.png').convert_alpha()
-    GAME_SPRITES['HOME'] = pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/Home.png').convert_alpha()
+    GAME_SPRITES['OVER'] = pygame.image.load(FILE_PATH+'SPRITES/gameover.png').convert_alpha()
+    GAME_SPRITES['RETRY'] = pygame.image.load(FILE_PATH+'SPRITES/retry.png').convert_alpha()
+    GAME_SPRITES['HOME'] = pygame.image.load(FILE_PATH+'SPRITES/Home.png').convert_alpha()
     SCREEN.blit(GAME_SPRITES['background'],(0,0))
     SCREEN.blit(GAME_SPRITES['base'],(0,GROUNDY))
     SCREEN.blit(GAME_SPRITES['OVER'], (0,0))
@@ -258,24 +261,24 @@ if __name__ == "__main__":
     #### LOADING THE SPRITES ####
 
     GAME_SPRITES['numbers'] = (
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/0.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/1.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/2.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/3.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/4.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/5.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/6.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/7.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/8.png').convert_alpha(),
-        pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/9.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/0.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/1.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/2.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/3.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/4.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/5.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/6.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/7.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/8.png').convert_alpha(),
+        pygame.image.load(FILE_PATH+'SPRITES/9.png').convert_alpha(),
     
     ) 
     
     
     GAME_SPRITES['background'] = pygame.image.load(BACKGROUND).convert_alpha()
     GAME_SPRITES['player'] = pygame.image.load(PLAYER).convert_alpha()
-    GAME_SPRITES['message'] = pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/message.png').convert_alpha()
-    GAME_SPRITES['base'] = pygame.image.load('D:/Programming/Python/Flappy Bird/resources/SPRITES/base.png').convert_alpha()
+    GAME_SPRITES['message'] = pygame.image.load(FILE_PATH+'SPRITES/message.png').convert_alpha()
+    GAME_SPRITES['base'] = pygame.image.load(FILE_PATH+'SPRITES/base.png').convert_alpha()
     GAME_SPRITES['pipe'] = (
         
         
@@ -284,11 +287,11 @@ if __name__ == "__main__":
     )
 
     #Game Sounds
-    GAME_SOUNDS['die'] = pygame.mixer.Sound('D:/Programming/Python/Flappy Bird/resources/AUDIO/die.wav')
-    GAME_SOUNDS['hit'] = pygame.mixer.Sound('D:/Programming/Python/Flappy Bird/resources/AUDIO/hit.wav')
-    GAME_SOUNDS['point'] = pygame.mixer.Sound('D:/Programming/Python/Flappy Bird/resources/AUDIO/point.wav')
-    GAME_SOUNDS['swoosh'] = pygame.mixer.Sound('D:/Programming/Python/Flappy Bird/resources/AUDIO/swoosh.wav')
-    GAME_SOUNDS['wing'] = pygame.mixer.Sound('D:/Programming/Python/Flappy Bird/resources/AUDIO/wing.wav')
+    GAME_SOUNDS['die'] = pygame.mixer.Sound(FILE_PATH+'AUDIO/die.wav')
+    GAME_SOUNDS['hit'] = pygame.mixer.Sound(FILE_PATH+'AUDIO/hit.wav')
+    GAME_SOUNDS['point'] = pygame.mixer.Sound(FILE_PATH+'AUDIO/point.wav')
+    GAME_SOUNDS['swoosh'] = pygame.mixer.Sound(FILE_PATH+'AUDIO/swoosh.wav')
+    GAME_SOUNDS['wing'] = pygame.mixer.Sound(FILE_PATH+'AUDIO/wing.wav')
     while True:
         welcomeScreen() #Shows a welcomescreen to the user until they starts the game
         mainGame() #This is our main game funtion
